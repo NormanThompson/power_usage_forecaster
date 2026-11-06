@@ -1,0 +1,32 @@
+# Secrets (the EIA key lives here)
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# IDE
+.idea/
+.vscode/
+
+# Local data and models (regenerable, can be large)
+data/
+*.db
+*.sqlite3
+*.parquet
+*.csv
+models/*.pkl
+*.joblib
+
+# OS
+.DS_Store
+Thumbs.db

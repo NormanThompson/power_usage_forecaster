@@ -4,6 +4,7 @@
 !.env.example
 
 #Scratch work
+*.ipynb
 
 # Python
 .venv/
@@ -15,7 +16,6 @@ __pycache__/
 .mypy_cache/
 .coverage
 htmlcov/
-
 # IDE
 .idea/
 .vscode/

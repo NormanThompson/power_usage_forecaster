@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     weather_lat: float = 47.6588  # Spokane
     weather_lon: float = -117.4260
 
+    weather_location:str = "spokane"
 
 def get_settings() -> Settings:
     return Settings()

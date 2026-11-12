@@ -17,3 +17,16 @@ def load_demand(ba: str | None = None) -> pandas.DataFrame:
     )
     df = pandas.read_sql(query, get_engine(), params={"ba": ba}, parse_dates=["ts_utc"])
     return df.set_index("ts_utc")
+
+def load_weather(location:str | None = None) -> pandas.DataFrame:
+    """
+    Loads weather data from weather_hourly table for a location
+    :param location: the location we are pulling weather from
+    :return: a dataframe with sorted, UTC time indexed data, and a column with temp_c for each index
+    """
+    location = location or get_settings().weather_location
+    query = text(
+        "select ts_utc, temp_c from weather_hourly where location = :location order by ts_utc asc"
+    )
+    df = pandas.read_sql(query, get_engine(), params = {"location": location}, parse_dates= ["ts_utc"] ).set_index("ts_utc")
+    return df

@@ -26,7 +26,7 @@ def main() -> None:
     else:
         start = (datetime.now(timezone.utc) - timedelta(days=args.days)).strftime("%Y-%m-%d")
     n = ingest(start)
-    print(f"Upserted {n} rows for {get_settings().ba_code} from {start}")
+    print(f"Upserted {n} rows for {get_settings().weather_location} from {start}")
 
 
 if __name__ == "__main__":

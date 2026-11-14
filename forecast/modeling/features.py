@@ -2,12 +2,16 @@ import pandas
 
 from forecast.modeling.cleaning import require_hourly_index
 
-LOCAL_TZ = "America/Los_Angeles"  # Pacific time (PST/PDT), observes daylight saving
-DEFAULT_LAGS = (24, 168)  # same hour yesterday, same hour last week (in hours)
-# Comes from my personal analysis from Spokane area weather data vs usage, where the lowest mean
-#usage comes from temperatures ~14 c, at which both sides decreasing in temp and increasing in temp
-#begin heating and cooling respectively
+LOCAL_TZ = "America/Los_Angeles"
+"""Pacific time (PST/PDT), observes daylight saving"""
+
+DEFAULT_LAGS = (24, 168)
+
 BALANCE_POINT_DEFAULT = 14.0
+"""same hour yesterday, same hour last week (in hours)Comes from my personal analysis 
+from Spokane area weather data vs usage, where the lowest mean usage comes from temperatures 
+~14 c, at which both sides decreasing in temp and increasing in temp begin heating and cooling respectively
+"""
 
 def add_calendar_features(df: pandas.DataFrame, tz: str = LOCAL_TZ) -> pandas.DataFrame:
     """Add local-time calendar columns without changing the (UTC) index
